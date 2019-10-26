@@ -1,42 +1,27 @@
 T = int(input())
 for _ in range(T):
-    N,Q,K,L,R = map(int, input().split())
-    temp_cost_list = []
-
-    for __ in range(N):
-        temp, cost = map(int, input().split())
-        temp_cost_list.append((temp, cost))
-    if Q > N:
-        for __ in range(N):
-            M = __
-            temp, cost = temp_cost_list[M]
-            for _ in range(M+1):
-                if temp > K + 1:
-                    temp -= 1
-                elif temp < K - 1:
-                    temp += 1
-                else:
-                    temp = K        
-            if temp <= R and temp >= L:
-                print(cost, end=' ')
-            else:
-                print(-1)
-        for __ in range(Q-N):
-            print(-1, end=' ')
-    else:
-        for __ in range(Q):
-            M = __
-            temp, cost = temp_cost_list[M]
-            for _ in range(M+1):
-                if temp > K + 1:
-                    temp -= 1
-                elif temp < K - 1:
-                    temp += 1
-                else:
-                    temp = K
-            if temp <= R and temp >= L:
-                print(cost, end=' ')
-            else:
-                print(-1, end=' ')
-
-    print('')
+    N, Q, K, L, R = map(int, input().split())
+    temp_price = []
+    for __ in  range(N):
+        temp_price.append(list(map(int, input().split())))
+    solutions = []
+    for i in range(1, Q+1):
+        min_temp = 10000
+        min_price = 10000
+        for temperature, price in temp_price:
+            M = i
+            while( M >  0):
+                if temperature > K+1:
+                    temperature-=1
+                elif temperature < K-1:
+                    temperature+=1
+                elif temperature <= K+1 and K-1 <= temperature:
+                    temperature = K
+                M-=1
+            if temperature >= L and temperature <= R and price < min_price:
+                min_price = price
+        if min_price < 10000:
+            solutions.append(min_price)
+        else:
+            solutions.append(-1)
+    print(' '.join(map(str,solutions)))
