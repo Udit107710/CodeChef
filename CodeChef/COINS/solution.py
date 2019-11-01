@@ -1,18 +1,16 @@
-a = []
-line = input()
-p = True
-while p:
-    try:
-        a.append(int(line))
-        line = input()
-    except:
-        p = False 
-
-a = list(map(int, a))
-
-ans = 0
-for element in a:
-    if element%12 == 0:
-        print(element + int(element/12))
+from math import floor
+from sys import stdin
+dp = {}
+for x in range(0,12):
+    dp[x] = x
+def exchange(coins):
+    if coins in dp.keys():
+        return dp[coins]
     else:
-        print(element)
+        ans = max(coins, exchange(floor(coins/2)) + exchange(floor(coins/3)) + exchange(floor(coins/4)))
+        dp[coins] = ans
+        return ans
+
+for x in stdin:
+    x = int(x)
+    print(exchange(x))
