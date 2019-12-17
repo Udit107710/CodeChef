@@ -1,18 +1,20 @@
-T = int(input())
+from sys import stdin, stdout
+T = int(stdin.readline())
 for _ in range(T):
-    n = int(input())
+    n = int(stdin.readline())
     warriors = []
-    for __ in range(n):
-        warriors.insert(0, input())
     prev = '0000000000'
-    for warrior in warriors:
+    
+    for __ in range(n):
         result = ''
-        for index in range(len(prev)):
+        warrior = stdin.readline()
+        for index in range(10):
             if prev[index] == warrior[index]:
                 result+='0'
             else:
                 result+='1'
         prev = result
+        
     count = 0
     for x in prev:
         if x == '1':
