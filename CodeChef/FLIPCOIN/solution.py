@@ -1,11 +1,11 @@
 from sys import stdin
+import numpy as np
 n, q = map(int, stdin.readline().split())
-coins = [0] * n
-while q >0:
+coins = []
+coins = np.zeros(n, dtype=bool)
+for _ in range(q):
     digit, a, b = map(int, stdin.readline().split())
-    if digit == 1:  
-        print(sum(coins[a:b+1]))
+    if digit == 0: 
+        coins[a:b+1] = ~coins[a:b+1]  
     else:
-        for index in range(a, b+1):
-            coins[index] = not coins[index]
-    q-=1
+        print(coins[a:b+1].sum())
