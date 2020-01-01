@@ -1,7 +1,7 @@
 def solveMazeUtil(maze, i, j, sol, length_column, length_row):
-    if i < 0 or i >= length_row or j < 0 or j >= length_column and maze[i][j] == 0:
-        return False
     
+    if i < 0 or i >= length_row or j < 0 or j >= length_column or maze[i][j] == 0:
+        return False
     sol[i][j] = 1
     if i == length_row-1 and j == length_column - 1:
         return True
@@ -32,8 +32,8 @@ def solveMaze(maze):
 
 maze = [ 
             [1, 0, 0, 0], 
-            [1, 1, 0, 1], 
-            [0, 1, 0, 0], 
+            [1, 1, 1, 1], 
+            [0, 1, 0, 1], 
             [1, 1, 0, 1] 
         ] 
                
