@@ -9,7 +9,6 @@ for _ in range(t):
     s_temp = s
     times = 1
     while stack:
-        print(stack, times, s_temp)
         if stack[0] <= s_temp:
             s_temp -= stack.pop(0)
         else:
