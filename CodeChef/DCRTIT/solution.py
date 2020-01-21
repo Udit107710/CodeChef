@@ -18,13 +18,13 @@ for _ in range(q):
     possible = True
     distance = 0
     for values in shops.values():
-        min_distance = float("inf")
+        min_distance = 10000000000
         for value in values:
             if t >= value[1] and t <= value[2]:
                 dist = abs(value[0]-x)
                 if min_distance > dist:
                     min_distance = dist
-        if min_distance == float("inf"):
+        if min_distance == 10000000000:
             possible = False
             break
         distance+=min_distance 

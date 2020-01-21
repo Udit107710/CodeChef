@@ -28,7 +28,6 @@ for _ in range(t):
     for index in range(1, length):
         differences[index] = min(differences[index-1], boxes[index])
     
-    times = 1
     prev = differences[-1]
     count_ = length * prev
     for index in range(length-2, -1, -1):
@@ -37,6 +36,5 @@ for _ in range(t):
         else:
             count_ += ((index+1) * (differences[index] - prev))
             prev = differences[index]
-            times+=1
     
     print(count_)

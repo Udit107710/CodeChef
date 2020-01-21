@@ -18,7 +18,6 @@ for _ in range(T):
             prev = value
             count = 1
     new_string+=prev + str(count)
-    # print(new_string, len(new_string), string, len(string), length)
 
     if len(new_string) < len(string):
         print('YES')
