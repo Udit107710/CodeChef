@@ -1,6 +1,5 @@
 from sys import stdin 
 from collections import defaultdict
-f = open("sol.txt", "a+")
 
 while True:
     v = int(stdin.readline())
@@ -25,18 +24,14 @@ while True:
                     queue.append([n,height+1])
                     heights[n] = height+1
                     reached[n] = True
-        
-        clear = True
-        for n in range(v):
-            for p in adj_list[n]:
-                if heights[p] == heights[n]:
+
+                if heights[n] == heights[node]:
                     clear = False
                     break
+        
         if clear:
-            f.writelines("BICOLORABLE.\n")
             print("BICOLORABLE.")
         else:
-            f.writelines("NOT BICOLORABLE.\n")
             print("NOT BICOLORABLE.")
     else:
         break
