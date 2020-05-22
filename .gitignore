@@ -1,3 +1,6 @@
 .vscode/*
 ACM/
 Juspay/
+.vs/*
+.bin/*
+obj/*

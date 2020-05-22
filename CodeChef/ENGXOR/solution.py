@@ -1,25 +1,24 @@
 from sys import stdin, stdout
-
-num_to_bits =[0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4]
-def countSetBitsRec(num): 
-    n = 0; 
-    if(0 == num): 
-        return num_to_bits[0]; 
-      
-    n = num & 0xf; 
-
-    return num_to_bits[n] + countSetBitsRec(num >> 4)
+from collections import defaultdict
 
 for _ in range(int(stdin.readline())):
-    n, q = map(int, stdin.readline().split())
-    a = list(map(int, stdin.readline().split()))
-    for __ in range(q):
-        query = int(stdin.readline())
-        even = 0
-        odd = 0
-        for i in a:
-            if countSetBitsRec(query^i)%2 == 0:
-                even+=1
-            else:
-                odd+=1
-        stdout.write(str(even) + ' ' + str(odd) + '\n')
+	n ,q = map(int ,stdin.readline().split())
+	x = list(map( int ,stdin.readline().split()))
+
+	
+	mapp = defaultdict(int)
+	
+	for e in x:
+		if(bin(e).count('1') %2 == 0):
+			mapp['even'] += 1
+		else:
+			mapp['odd']  += 1
+		
+	for o in range(q):
+		l = int(stdin.readline())
+		
+		
+		if(bin(l).count('1') % 2 != 0):
+			print(mapp['odd'], mapp['even'])
+		else:
+			print(mapp['even'], mapp['odd'])
