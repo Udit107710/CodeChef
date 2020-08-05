@@ -34,7 +34,17 @@ int main(){
             cout << "\n";
             continue;
         }
+        double last = -1;
+        double revLast = -1;
+        for(itr=pc.rbegin(); itr != pc.rend(); ++itr){
+            vector<int> ans;
+            if(itr->first < last){
 
+            }
+            else{
+
+            }
+        }
 
     }
 

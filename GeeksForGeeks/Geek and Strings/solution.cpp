@@ -11,7 +11,7 @@ struct node{
     int wordcount;
 };
 
-node* getNode(){
+node* getNode(){    
     node *n = new node;
     n->wordcount = 0;
     for(int i=0; i < ALPHABET_SIZE; ++i) n->children[i] = NULL;

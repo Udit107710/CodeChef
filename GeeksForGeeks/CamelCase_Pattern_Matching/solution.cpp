@@ -39,9 +39,5 @@ int search(node *root, string word){
         if(!nd->children[key]){ flag = false; break; }
         nd = nd->children[key];
     }
-    int count = 1;
-    if(nd->endWord) ++count;
-    for(int i=0; i < ALPHABET_SIZE; ++i)
-    if(nd->children[i]) ++count;
-    return count;
+    
 }
